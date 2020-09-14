@@ -1,0 +1,681 @@
+@function get_vw($size, $viewport: 375) {
+    $rate: 100 / $viewport;
+    @return $rate * $size * 1vw;
+}
+@mixin fz_vw($font_size: 10) {
+    font-size: $font_size * 1px;
+    font-size: get_vw($font_size);
+}
+
+body {
+    font-family: Meiryo, "メイリオ", Hiragino Kaku Gothic ProN, "ヒラギノ角ゴ ProN W3", Osaka, MS PGothic, arial,
+        helvetica, sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+.header {
+    &-menu {
+        width: 100%;
+        display: flex;
+        border-top: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        padding-left: get_vw(5);
+        &__item {
+            width: get_vw(49);
+            border-left: 1px solid #cccccc;
+            a {
+                display: block;
+                padding: get_vw(11) 0 get_vw(7);
+                text-align: center;
+                img {
+                    height: get_vw(22);
+                }
+            }
+            &:first-child {
+                width: get_vw(229);
+                border-left: none;
+            }
+        }
+    }
+    &__logo {
+        a {
+            padding-left: 8px;
+            display: inline-block;
+        }
+        img {
+            height: get_vw(14) !important;
+        }
+    }
+    &__button {
+        width: 100%;
+        height: 100%;
+        background-color: #f3f3f2;
+        text-align: center;
+        img {
+            width: get_vw(25);
+        }
+    }
+}
+.announce {
+    width: get_vw(355);
+    margin: get_vw(18) auto get_vw(21);
+    border: 1px solid #000000;
+    padding: get_vw(20) get_vw(11);
+    &__title {
+        text-align: center;
+        margin-bottom: 14px;
+        @include fz_vw(16);
+    }
+    &__text {
+        line-height: 1.6;
+        @include fz_vw(12);
+        &:last-child {
+            margin-top: 20px;
+        }
+    }
+    &__link {
+        text-decoration: underline;
+        position: relative;
+        &::after {
+            content: ">";
+            position: absolute;
+            @include fz_vw(14);
+            left: 40px;
+            top: -6px;
+            font-weight: 100;
+        }
+    }
+}
+.top {
+    background-image: url("../img/sp_top_logo.png"), url("../img/sp_top_back.png");
+    background-position: center top, center top get_vw(-438);
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, cover;
+    text-align: center;
+    position: relative;
+    padding: get_vw(19.6) get_vw(10) get_vw(21);
+    border-bottom: 5px solid #f40009;
+    &__title {
+        margin-bottom: get_vw(21);
+        padding-top: get_vw(13);
+        img {
+            width: get_vw(309);
+        }
+    }
+    &__text {
+        @include fz_vw(13);
+        font-weight: 600;
+    }
+    &__subtitle {
+        text-align: left;
+        padding-left: 5px;
+        img {
+            width: get_vw(164);
+        }
+    }
+    &__medal {
+        position: absolute;
+        top: get_vw(25);
+        right: get_vw(16);
+        width: get_vw(100);
+    }
+    &__ticket {
+        text-align: left;
+        margin-top: get_vw(19);
+        padding-left: get_vw(39);
+        img {
+            width: get_vw(134);
+        }
+    }
+    &__bottle {
+        position: absolute;
+        top: get_vw(235);
+        right: get_vw(34);
+        width: get_vw(139);
+    }
+    &__course {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: get_vw(18);
+        padding-left: get_vw(20);
+        img {
+            width: get_vw(315);
+            margin-bottom: get_vw(1);
+        }
+    }
+    &__term {
+        margin-top: get_vw(18);
+        > p {
+            @include fz_vw(11);
+            color: #666666;
+            line-height: 1;
+            &:first-child {
+                margin-bottom: get_vw(12);
+            }
+        }
+    }
+}
+.campaign {
+    background-image: url("../img/sp_campaign_back.png");
+    text-align: center;
+    padding: get_vw(10) get_vw(12) get_vw(4);
+    &__heading {
+        padding: 0 get_vw(6);
+        margin-bottom: get_vw(27);
+    }
+    &__subtitle {
+        img {
+            width: get_vw(342);
+        }
+    }
+    &__title {
+        padding-top: get_vw(20);
+        padding-bottom: get_vw(10);
+        img {
+            width: get_vw(342);
+        }
+    }
+    &__annotation {
+        display: block;
+        @include fz_vw(11);
+        color: #333333;
+        line-height: 1.6;
+    }
+}
+.course {
+    margin-bottom: get_vw(26);
+    &__title {
+        @include fz_vw(12);
+        font-weight: 700;
+        color: #ffffff;
+        padding: get_vw(6) 0;
+        &--blue {
+            background-color: #002063;
+        }
+        &--red {
+            background-color: #f40009;
+        }
+    }
+    &__list {
+        display: flex;
+        margin: get_vw(10) 0 get_vw(7);
+        a {
+            display: block;
+            height: 100%;
+        }
+        &--space-between {
+            justify-content: space-between;
+        }
+        &--space-around {
+            justify-content: space-around;
+        }
+    }
+    &__item {
+        position: relative;
+        &::after {
+            position: absolute;
+            display: block;
+            width: get_vw(9);
+            height: get_vw(9);
+            border-top: 2px solid;
+            border-right: 2px solid;
+            content: "";
+            right: get_vw(9);
+            top: get_vw(36);
+            transform: rotate(135deg);
+        }
+        img {
+            width: get_vw(110);
+        }
+        &--blue {
+            &::after {
+                border-color: #002063;
+            }
+        }
+        &--red {
+            &::after {
+                border-color: #f40009;
+            }
+            img {
+                width: get_vw(140);
+            }
+        }
+    }
+    &__annotation {
+        @include fz_vw(11);
+        font-weight: 300;
+        color: #333333;
+    }
+}
+
+.prize {
+    background-image: url("../img/sp_baton_back.png");
+    background-position: center top -1px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #002063;
+    padding: get_vw(31) 0 get_vw(40);
+    &__title {
+        text-align: center;
+        margin-bottom: get_vw(26);
+        img {
+            width: get_vw(244);
+        }
+    }
+    &__contents {
+        width: get_vw(355);
+        margin: 0 auto;
+        background-repeat: no-repeat;
+        background-position: center top get_vw(-84);
+        background-size: contain;
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding-bottom: get_vw(30);
+        margin-bottom: get_vw(38);
+        position: relative;
+        text-align: center;
+        &--gold {
+            background-image: url("../img/sp_prize_back_gold.png");
+        }
+        &--silver {
+            background-image: url("../img/sp_prize_back_silver.png");
+        }
+        &--bronze {
+            background-image: url("../img/sp_prize_back_bronze.png");
+            background-position: center top get_vw(-91);
+            .prize__number {
+                img {
+                    width: get_vw(149);
+                }
+            }
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &__medal {
+        position: absolute;
+        width: get_vw(75);
+        top: get_vw(-10);
+        left: get_vw(28);
+        &--silver {
+            top: get_vw(-8);
+            left: get_vw(30);
+        }
+        &--bronze {
+            top: get_vw(-11);
+            left: get_vw(29);
+        }
+    }
+    &__number {
+        padding-left: get_vw(33);
+        line-height: get_vw(48);
+        img {
+            width: get_vw(122);
+        }
+    }
+    &__stamp {
+        border: 2px solid #006cb8;
+        margin: get_vw(22) auto get_vw(23);
+        padding: get_vw(10) get_vw(15);
+        display: inline-block;
+        img {
+            width: get_vw(190);
+        }
+    }
+    &__text {
+        @include fz_vw(16);
+        letter-spacing: -1.2px;
+        font-weight: 600;
+        padding-left: get_vw(10);
+    }
+    &__annotation {
+        @include fz_vw(10);
+        color: #221815;
+        letter-spacing: -1.2px;
+    }
+}
+.sports {
+    margin-bottom: get_vw(19);
+    &__info {
+        display: flex;
+        justify-content: flex-start;
+        padding: get_vw(16) 0 get_vw(18) get_vw(32);
+        &--blue {
+            background-color: #f1f7fb;
+        }
+    }
+    &__image {
+        width: get_vw(126.5);
+        font-family: "ヒラギノ角ゴ Std W8";
+        margin-right: get_vw(23);
+        img {
+            width: 100%;
+        }
+    }
+    &__schedule {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    &__title {
+        @include fz_vw(16);
+        font-style: oblique;
+        margin-right: get_vw(3);
+        letter-spacing: -1px;
+    }
+    &__name {
+        @include fz_vw(6);
+        color: #cccccc;
+        font-weight: bold;
+        font-style: italic;
+        display: block;
+    }
+    &__contents {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: get_vw(15) 0;
+        &--gold {
+            width: get_vw(214);
+            height: get_vw(127);
+        }
+        &--silver {
+            width: get_vw(165);
+            height: get_vw(147);
+        }
+        &--bronze {
+            width: get_vw(192);
+            height: get_vw(147);
+        }
+    }
+    &__day {
+        color: #006cb8;
+        @include fz_vw(16);
+        font-family: "ヒラギノ角ゴ Std W8";
+        letter-spacing: 1.2px;
+        + .sports__day {
+            margin-top: get_vw(4);
+        }
+    }
+    &__list {
+        border-left: 1px solid #000000;
+        color: #002063;
+        font-weight: 700;
+        padding-left: get_vw(8);
+        margin-top: get_vw(10);
+        @include fz_vw(10);
+        > li {
+            line-height: 1;
+            margin-bottom: get_vw(6);
+        }
+    }
+    &__text + .sports__text {
+        margin-top: get_vw(11);
+    }
+}
+.button {
+    background-color: #f40009;
+    color: #ffffff;
+    @include fz_vw(17);
+    font-weight: 600;
+    display: block;
+    border-radius: 50px;
+    width: get_vw(275);
+    margin: 0 auto;
+    margin-top: get_vw(26);
+    padding: get_vw(16);
+    position: relative;
+    &::after {
+        position: absolute;
+        display: block;
+        width: get_vw(11);
+        height: get_vw(11);
+        border-top: 3px solid;
+        border-right: 3px solid;
+        content: "";
+        right: get_vw(20);
+        top: get_vw(20);
+        transform: rotate(45deg);
+    }
+}
+.gift-card {
+    background-image: url("../img/sp_baton_back.png");
+    background-position: center top get_vw(-1);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #d30008;
+    text-align: center;
+    padding: get_vw(38) 0 get_vw(30);
+    &__title {
+        img {
+            width: get_vw(240);
+        }
+    }
+    &__contents {
+        background-color: #ffffff;
+        border-radius: 5px;
+        width: get_vw(355);
+        margin: get_vw(27) auto 0;
+        padding: get_vw(29) 0 get_vw(29);
+    }
+    &__text {
+        border: 2px solid #a70006;
+        padding: get_vw(10) get_vw(28);
+        display: inline-block;
+        img {
+            width: get_vw(165);
+        }
+    }
+    &__image {
+        display: inline-block;
+        width: get_vw(275);
+        padding-left: get_vw(45);
+        margin-top: get_vw(8);
+        margin-bottom: get_vw(20);
+    }
+    &__price {
+        img {
+            width: get_vw(255);
+        }
+    }
+}
+.chance {
+    text-align: center;
+    margin: get_vw(25) 0 get_vw(28);
+    img {
+        width: get_vw(360);
+    }
+}
+
+.stamp {
+    background-color: #e5f0f8;
+    margin-bottom: get_vw(30);
+    padding-bottom: get_vw(33);
+    &__title {
+        background-color: #008def;
+        color: #ffffff;
+        padding: get_vw(15) 0;
+        text-align: center;
+        @include fz_vw(19);
+    }
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 get_vw(20);
+        margin-top: get_vw(22);
+        position: relative;
+        > li {
+            &:first-child {
+                img {
+                    width: get_vw(155);
+                }
+                &::after {
+                    content: "";
+                    background-image: url("../img/sp_stamp_arrow.png");
+                    background-repeat: no-repeat;
+                    background-size: get_vw(20);
+                    position: absolute;
+                    top: get_vw(9);
+                    left: get_vw(154);
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &:last-child {
+                img {
+                    width: get_vw(162);
+                }
+            }
+        }
+    }
+    &-card {
+        width: get_vw(290);
+        margin: 0 auto;
+        margin-top: get_vw(22);
+        img {
+            width: 100%;
+        }
+        &__annotation {
+            display: block;
+            text-align: left;
+            @include fz_vw(10);
+            color: #221815;
+            padding-top: get_vw(5);
+        }
+    }
+}
+.flow {
+    width: get_vw(340);
+    margin: get_vw(20) auto 0;
+    img {
+        width: 100%;
+    }
+    &__list {
+        background-color: #e60012;
+        color: #ffffff;
+        padding: 6px 10px 4px;
+        > li {
+            display: block;
+            @include fz_vw(11);
+            font-weight: 100;
+            position: relative;
+            padding-left: 1em;
+            letter-spacing: -0.4px;
+            line-height: 1.5;
+            margin-bottom: get_vw(2);
+            &::before {
+                position: absolute;
+                content: "※";
+                left: 0;
+            }
+        }
+    }
+}
+.apply {
+    margin-top: get_vw(49);
+    &__button {
+        width: get_vw(355);
+        margin: 0 auto;
+        border: 2px solid #f40009;
+        border-radius: 100px;
+        @include fz_vw(17);
+        color: #f40009;
+        text-align: center;
+        display: block;
+        padding: get_vw(14) 0;
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            display: block;
+            width: get_vw(12);
+            height: get_vw(12);
+            border-top: 3px solid;
+            border-right: 3px solid;
+            right: get_vw(15);
+            top: get_vw(17);
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.gift-item {
+    width: get_vw(345);
+    border: 3px solid #f40009;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: get_vw(19) get_vw(45);
+    &__title {
+        text-align: center;
+        img {
+            width: get_vw(205);
+        }
+    }
+    &__image {
+        text-align: center;
+        margin-top: get_vw(17);
+        padding-bottom: get_vw(19);
+        border-bottom: 1px solid #cccccc;
+        img {
+            width: get_vw(170);
+        }
+    }
+    &__annotation {
+        @include fz_vw(10);
+        padding-top: get_vw(11);
+        line-height: 1.4;
+        letter-spacing: -1.5px;
+        > li {
+            margin-bottom: get_vw(3);
+        }
+    }
+}
+.info {
+    margin-top: get_vw(44);
+    background-color: #e7e7e7;
+    padding-bottom: get_vw(20);
+    &__title {
+        background-color: #999999;
+        color: #ffffff;
+        @include fz_vw(19);
+        font-weight: 600;
+        text-align: center;
+        padding: get_vw(15) 0;
+    }
+    &__contents {
+        margin: 0 get_vw(20) get_vw(28);
+        @include fz_vw(11);
+        color: #111111;
+        letter-spacing: -1.2px;
+    }
+    &__annotation {
+        display: block;
+        margin-top: get_vw(20);
+    }
+    &__link {
+        text-decoration: underline;
+        margin-bottom: get_vw(20);
+    }
+    &__list {
+        margin-top: get_vw(24);
+        line-height: 1.5;
+        letter-spacing: -0.7px;
+        margin-bottom: get_vw(10);
+        > li {
+            margin-bottom: get_vw(5);
+            &::before {
+                content: "・";
+            }
+        }
+    }
+}
+.footer {
+    background-color: #f8f8f8;
+    @include fz_vw(11);
+    color: #b4b4b4;
+    text-align: center;
+    padding: get_vw(32) 0;
+}
