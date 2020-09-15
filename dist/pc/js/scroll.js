@@ -9,6 +9,7 @@ var smoothscroll = (element) =>{
     });
 };
 
+/**
 var scroll1 = document.querySelector('.link-scroll1');
 var scroll1Section = document.getElementById('scroll1');
 scroll1.addEventListener('click', e => {
@@ -29,3 +30,15 @@ scroll3.addEventListener('click', e => {
     e.preventDefault();
     smoothscroll(scroll3Section);
 });
+ */
+
+
+var btns = document.querySelectorAll('a[href^="#"]');
+for (let i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click",function(){
+    var id = btns[i].getAttribute('href');
+    id = id.replace('#','');
+    var position = document.getElementById(id);
+    smoothscroll(position);
+  });
+}
