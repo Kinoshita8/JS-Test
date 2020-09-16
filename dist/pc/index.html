@@ -9,11 +9,40 @@
 </head>
 
 <body>
+  <header class="header">
+    <button type="button" id="menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div id="bg"></div>
+  <div class="sub-menu">
+    <nav>
+      <ul>
+        <li>メニュー１</li>
+        <li>メニュー１</li>
+        <li>メニュー１</li>
+        <li>メニュー１</li>
+      </ul>
+      <ul>
+        <li>メニュー１</li>
+        <li>メニュー１</li>
+        <li>メニュー１</li>
+        <li>メニュー１</li>
+      </ul>
+    </nav>
+  </div>
+
   <ul class="list">
     <li><a href="#scroll1" class="link-scroll1">スクロール1</a></li>
     <li><a href="#scroll2" class="link-scroll2">スクロール2</a></li>
     <li><a href="#scroll3" class="link-scroll3">スクロール3</a></li>
   </ul>
+
+  <button type="button" class="modal-open" id="js-modal_link">Open Modal</button>
+
 
   <div class="box" id="scroll1">
     <p>スクロール1</p>
@@ -25,9 +54,15 @@
     <p>スクロール3</p>
   </div>
 
+  <div class="overlay">
+    <div class="modal_contents">
+      <a class="close" href="#">CLOSE</a>
+    </div>
+  </div>
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.js"></script>
-  <script src="js/scroll.js"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
