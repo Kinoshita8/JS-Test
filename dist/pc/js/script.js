@@ -99,7 +99,6 @@ for (let i = 0; i < btns.length; i++) {
         hamItems,
         menu,
         bg,
-        isAnimation = false;
 
     ham = document.getElementById('menu');
     hamItems = document.querySelectorAll('span');
@@ -108,7 +107,6 @@ for (let i = 0; i < btns.length; i++) {
 
     ham.addEventListener('click', function () {
         for (var i = 0; i < hamItems.length; i++) {
-            // 上記if文を削除し、下記コードをアクティブにしても実行可能
             hamItems[i].classList.toggle('is-active');
         }
         menu.classList.toggle('sub-menu-active');
