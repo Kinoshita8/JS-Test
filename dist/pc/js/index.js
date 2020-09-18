@@ -47,7 +47,7 @@
         // オーバーレイクリック時オーバーレイを削除
         $overlay.addEventListener('click', function (e) {
             e.preventDefault();
-            Velocity(overlay, "fadeOut", {
+            Velocity($overlay, "fadeOut", {
                 duration: 100
             });
         });
