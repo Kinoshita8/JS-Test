@@ -1,5 +1,9 @@
 @charset "UTF-8";
 body {
+  border-left: 2px solid #00cccc;
+}
+
+body {
   text-align: center;
 }
 
