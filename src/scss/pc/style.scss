@@ -1,5 +1,11 @@
+@import 'test';
+
 body {
   text-align: center;
+}
+.no-scroll {
+  height: 100vh;
+  overflow-y: hidden;
 }
 .block {
   display: flex;
@@ -40,7 +46,7 @@ body {
     opacity: 0.6;
   }
 }
-.overlay {
+.modal {
   display: none;
   position: fixed;
   top: 0;
@@ -52,21 +58,21 @@ body {
   z-index: 20;
 }
 
-.modal_contents {
+.modal_body {
   display: flex;
   align-items: center;
   justify-content: center;
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 500px;
-  height: 400px;
+  width: 700px;
+  height: 500px;
   transform: translate(-50%, -50%);
   background: #fff;
   z-index: 30;
 }
 
-.header{
+.header {
   position: fixed;
   top: 0;
   z-index: 10;
@@ -115,7 +121,7 @@ body {
     }
   }
 }
-.sub-menu{
+.sub-menu {
   background-color: #ffffff;
   width: 1300px;
   height: 500px;
@@ -127,13 +133,13 @@ body {
   top: -100%;
   transition: 0.5s;
   padding: 50px;
-  &-active{
+  &-active {
     top: 6%;
   }
-  nav{
+  nav {
     display: flex;
   }
-  &__bg{
+  &__bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -144,36 +150,72 @@ body {
     transition: 0.5s;
   }
 }
-.panel-box{
+.panel-box {
   width: 1000px;
   margin: 20px auto;
 }
-.tab-group{
+.tab-group {
   display: flex;
   justify-content: center;
 }
-.tab{
+.tab {
   flex-grow: 1;
-  padding:5px;
-  list-style:none;
-  border:solid 1px #CCC;
-  text-align:center;
-  cursor:pointer;
+  padding: 5px;
+  list-style: none;
+  border: solid 1px #ccc;
+  text-align: center;
+  cursor: pointer;
 }
-.panel-group{
-  height:100px;
-  border:solid 1px #CCC;
-  border-top:none;
-  background:#eee;
+.panel-group {
+  height: 100px;
+  border: solid 1px #ccc;
+  border-top: none;
+  background: #eee;
 }
-.panel{ /*非表示にさせます*/
-  display:none;
+.panel {
+  /*非表示にさせます*/
+  display: none;
 }
-.tab.is-active{  /*tabを上書きして発火させます*/
-  background:#F00;
-  color:#FFF;
+.tab.is-active {
+  /*tabを上書きして発火させます*/
+  background: #f00;
+  color: #fff;
   transition: all 0.2s ease-out;
 }
-.panel.is-show{ /*panelを上書きしてこれだけ表示させます*/
-  display:block;
+.panel.is-show {
+  /*panelを上書きしてこれだけ表示させます*/
+  display: block;
+}
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 1;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  color: #000;
+  background-color: transparent;
+  border: none;
+  &:before {
+    position: relative;
+    top: 2px;
+    left: -5px;
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #000;
+    transform: rotate(45deg);
+    content: '';
+  }
+  &:after {
+    position: relative;
+    left: -5px;
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: #000;
+    transform: rotate(-45deg);
+    content: '';
+  }
 }

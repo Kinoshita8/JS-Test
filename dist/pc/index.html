@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-  <title>SmoothScroll</title>
+  <title>JS-Practice</title>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/destyle.css" type="text/css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -30,9 +30,6 @@
         <li>メニュー１</li>
         <li>メニュー１</li>
         <li>メニュー１</li>
-        <li><a class="facebook" href="javascript:void(0);"
-            onclick="window.open('http://www.facebook.com/share.php?u=' + location.href,'facebook_share','width=550,height=450,personalbar=0,toolbar=0,scrollbars=1,resizable=1'); return false;">facebook</a>
-        </li>
       </ul>
     </nav>
   </div>
@@ -43,7 +40,7 @@
     <li><a href="#scroll3" class="link-scroll3">スクロール3</a></li>
   </ul>
 
-  <button type="button" class="modal-open" id="js-modal_link">Open Modal</button>
+  <button type="button" class="modal-open js_modal-open">Open Modal</button>
 
   <div class="panel-box">
     <ul class="tab-group">
@@ -70,15 +67,20 @@
     <p>スクロール3</p>
   </div>
 
-  <div class="overlay">
-    <div class="modal_contents">
-      <a class="close" href="#">CLOSE</a>
+  <div class="modal">
+    <div class="modal_body">
+      <a class="close js_modal-close" href="#"></a>
+      <div class="movie">
+        <!-- <iframe class="movie_player" src="https://www.youtube.com/embed/MSlrYulkUo4?enablejsapi=1" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe> -->
+        <div id="player" class="movie_player"></div>
+      </div>
     </div>
   </div>
 
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.js"></script>
-  <script src="js/index.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.js"></script> -->
+  <script src="../js/index.js"></script>
 
 </body>
 
