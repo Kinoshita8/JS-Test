@@ -4,7 +4,10 @@
 <head>
   <title>JS-Practice</title>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/destyle.css" type="text/css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.css">
   <link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
@@ -16,6 +19,10 @@
       <span class="hamburger_line"></span>
     </button>
   </header>
+
+  <div class="loading">
+    <div class="loader">Loading...</div>
+  </div>
 
   <div id="bg"></div>
   <div class="sub-menu">
@@ -41,10 +48,11 @@
     </ul>
   </section>
   <ul class="list">
-    <li><a href="#scroll1" class="link-scroll1">スクロール1</a></li>
-    <li><a href="#scroll2" class="link-scroll2">スクロール2</a></li>
-    <li><a href="#scroll3" class="link-scroll3">スクロール3</a></li>
+    <li><a href="#scroll1" class="link-scroll1 js-smooth">スクロール1</a></li>
+    <li><a href="#scroll2" class="link-scroll2 js-smooth">スクロール2</a></li>
+    <li><a href="#scroll3" class="link-scroll3 js-smooth js-smooth-accordion">スクロール3</a></li>
   </ul>
+  <img src="img/icon01.png" style="width: 40px;">
 
   <button type="button" class="modal-open js_modal-open">Open Modal</button>
 
@@ -62,16 +70,154 @@
     </div>
   </div>
 
-
   <div class="box" id="scroll1">
     <p>スクロール1</p>
   </div>
   <div class="box" id="scroll2">
-    <p>スクロール2</p>
+    <p id="cvShow">スクロール2</p>
   </div>
-  <div class="box" id="scroll3">
+  <div class="box">
     <p>スクロール3</p>
+    <div class="l-accordion">
+      <div class="l-btn-container">
+        <button class="m-btn m-btn-accordion js-accordion"></button>
+      </div>
+      <div class="m-accordion">
+        <div class="l-btn-container">
+          <a class="m-btn m-btn-gray" target="_blank" href="https://original.jcb.co.jp/">JCBオリジナルシリーズパートナーを見る</a>
+        </div>
+        <div class="l-noteList-container" id="scroll3">
+          <ul class="m-noteList">
+            <li><span>※1 </span>事前にキャンペーン登録が必要です。</li>
+            <li><span>※2 </span>一部対象とならない店舗があります。</li>
+            <li>
+              <span>※3 </span>
+              <ul class="m-noteList">
+                <li><span>●</span>WEB明細サービス「MyJチェック」の登録があり、オリジナルシリーズ専用サイトを経由したショッピングご利用分が対象です。</li>
+                <li><span>●</span>Amazon、Amazon.co.jpおよびそれらのロゴは、Amazon.com, Inc.またはその関連会社の商標または登録商標です。</li>
+              </ul>
+            </li>
+            <li><span>※</span>一部ポイント優待が適用にならない店舗があります。</li>
+            <li><span>※</span>優待店により特典・条件等が異なりますので、ご利用前に必ず<a class="m-link" target="_blank"
+                href="https://original.jcb.co.jp/">オリジナルシリーズ専用サイト</a>で最新情報をご確認ください。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="l-accordion">
+      <div class="l-btn-container">
+        <button class="m-btn m-btn-accordion js-accordion"></button>
+      </div>
+      <div class="m-accordion">
+        <div class="l-btn-container">
+          <a class="m-btn m-btn-gray" target="_blank" href="https://original.jcb.co.jp/">JCBオリジナルシリーズパートナーを見る</a>
+        </div>
+        <div class="l-noteList-container" id="scroll4">
+          <ul class="m-noteList">
+            <li><span>※1 </span>事前にキャンペーン登録が必要です。</li>
+            <li><span>※2 </span>一部対象とならない店舗があります。</li>
+            <li>
+              <span>※3 </span>
+              <ul class="m-noteList">
+                <li><span>●</span>WEB明細サービス「MyJチェック」の登録があり、オリジナルシリーズ専用サイトを経由したショッピングご利用分が対象です。</li>
+                <li><span>●</span>Amazon、Amazon.co.jpおよびそれらのロゴは、Amazon.com, Inc.またはその関連会社の商標または登録商標です。</li>
+              </ul>
+            </li>
+            <li><span>※</span>一部ポイント優待が適用にならない店舗があります。</li>
+            <li><span>※</span>優待店により特典・条件等が異なりますので、ご利用前に必ず<a class="m-link" target="_blank"
+                href="https://original.jcb.co.jp/">オリジナルシリーズ専用サイト</a>で最新情報をご確認ください。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
+
+
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide slide-item">
+        <p>Slide 1タイトル</p>
+        <div class="slide-box">
+          <p>テキストテキストテキストテキスト</p>
+        </div>
+      </div>
+      <div class="swiper-slide slide-item">Slide 2</div>
+      <div class="swiper-slide slide-item">Slide 3</div>
+    </div>
+    <div class="swiper-pagination"></div>
+
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+
+
+  <!-- <section class="movies">
+    <div class="movies__inner">
+      <div class="movies__gallery">
+        <div class="movies__gallery__inner">
+          <div class="js-carousel-prev movies__gallery__previous"><a href="#previous"><span></span></a></div>
+          <div class="movies__gallery__items js-carousel-item">
+            <div class="movies__gallery__items-inner">
+              <div class="js-youtube" data-id="6VVbfTteNqM"></div>
+            </div>
+          </div>
+          <div class="movies__gallery__items js-carousel-item" style="display:none">
+            <div class="movies__gallery__items-inner">
+              <div class="js-youtube" data-id="MSlrYulkUo4"></div>
+            </div>
+          </div>
+          <div class="movies__gallery__items js-carousel-item" style="display:none">
+            <div class="movies__gallery__items-inner">
+              <div class="js-youtube" data-id="pgbe6rzkDZo"></div>
+            </div>
+          </div>
+          <div class="js-carousel-next movies__gallery__next"><a href="#next"><span></span></a></div>
+        </div>
+        <div class="movies__gallery__nav">
+          <ul>
+            <li class="js-carousel-indicator current" data-index="0"><a href="#item1"></a></li>
+            <li class="js-carousel-indicator" data-index="1"><a href="#item2"></a></li>
+            <li class="js-carousel-indicator" data-index="2"><a href="#item3"></a></li>
+          </ul>
+        </div>
+        <div class="movies__gallery__arrows">
+          <ul>
+            <!-- <li class="js-carousel-prev movies__gallery__previous"><a href="#previous"><span>戻る</span></a></li> -->
+            <!-- <li class="js-carousel-next movies__gallery__next"><a href="#next"><span>進む</span></a></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+
+  <section class="ly_carousel">
+    <div class="bl_carousel_wrapper">
+      <ul class="bl_carousel_list">
+        <li class="bl_carousel_item"></li>
+        <li class="bl_carousel_item"></li>
+        <li class="bl_carousel_item"></li>
+        <li class="bl_carousel_item"></li>
+        <li class="bl_carousel_item"></li>
+        <li class="bl_carousel_item"></li>
+      </ul>
+    </div>
+    <div class="bl_carousel_nav">
+      <li class="bl_carousel_prev"><a href="#prev"><span></span></a></li>
+      <li class="bl_carousel_next"><a href="#next"><span></span></a></li>
+    </div>
+    <div class="movies__gallery__nav">
+      <ul>
+        <li class="bl_carousel_indicator current" data-index="0"><a href="#item1"></a></li>
+        <li class="bl_carousel_indicator" data-index="1"><a href="#item2"></a></li>
+        <li class="bl_carousel_indicator" data-index="2"><a href="#item3"></a></li>
+        <li class="bl_carousel_indicator" data-index="3"><a href="#item4"></a></li>
+      </ul>
+    </div>
+  </section><!-- /.ly_carousel -->
 
   <div class="modal">
     <div class="modal_body">
@@ -85,9 +231,26 @@
     </div>
   </div>
 
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.js"></script> -->
-  <script src="../js/index.js"></script>
+  <div id="btnEnd">
+    <div class="l-cv">
+      <div class="l-cv-inner">
+        <div class="l-cv-btn">
+          <a class="m-btn-cv" href="#">申し込む</a>
+        </div>
+        <a class="js-smooth js-smooth-accordion" href="#scroll4">基本情報を確認する</a>
+      </div>
+    </div>
+  </div>
 
+  <div class="box"></div>
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.js"></script> -->
+  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script> -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <!-- <script src="https://unpkg.com/swiper/swiper-bundle.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.js"></script>
+  <script src="../js/index.js"></script>
+  <!-- <script src="index.js"></script> -->
 </body>
 
 </html>

@@ -21,14 +21,14 @@ export default class ModalUI extends EventEmitter {
       $modalOpen.addEventListener('click', (e) => {
         e.preventDefault();
         this.open();
-        this.emit('movieStart');
+        this.emit('movieStart'); /* モーダル展開時に動画再生開始 */
       });
     });
     this.$modalClose.forEach(($modalClose) => {
       $modalClose.addEventListener('click', (e) => {
         e.preventDefault();
         this.close();
-        this.emit('moviePause');
+        this.emit('moviePause'); /* モーダル閉鎖時に動画停止 */
       });
     });
     //　モーダルコンテンツ外クリック時にモーダルウィンドウを閉じる
